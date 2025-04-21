@@ -1,7 +1,7 @@
 #ifndef NEURALNET_H
 #define NEURALNET_H
 
-#include "matrix.h"
+#include "matrix.h"  // ✅ This is the missing link
 
 typedef struct {
     int input_size;
@@ -13,9 +13,8 @@ typedef struct {
     Matrix *A2;
 } NeuralNet;
 
-NeuralNet* create_network(int input, int hidden, int output);
-void free_network(NeuralNet *nn);
-
+NeuralNet* create_nn(int input, int hidden, int output);
+void free_nn(NeuralNet *nn);
 Matrix* forward(NeuralNet *nn, Matrix *X);
 void train(NeuralNet *nn, Matrix *X, Matrix *Y, double lr, int epochs);
 

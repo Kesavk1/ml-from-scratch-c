@@ -12,7 +12,7 @@ int main() {
     X->data[2][0] = 1; X->data[2][1] = 0; Y->data[2][0] = 1;
     X->data[3][0] = 1; X->data[3][1] = 1; Y->data[3][0] = 0;
 
-    NeuralNet *nn = create_network(2, 4, 1);
+    NeuralNet *nn = create_nn(2, 4, 1);
     train(nn, X, Y, 0.1, 1000);
 
     Matrix *out = forward(nn, X);
@@ -22,7 +22,7 @@ int main() {
     free_matrix(X);
     free_matrix(Y);
     free_matrix(out);
-    free_network(nn);
+    free_nn(nn);
 
     return 0;
 }
